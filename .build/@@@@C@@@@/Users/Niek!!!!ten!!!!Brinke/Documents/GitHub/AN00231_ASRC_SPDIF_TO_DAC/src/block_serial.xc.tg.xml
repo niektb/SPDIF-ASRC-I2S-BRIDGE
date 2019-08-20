@@ -1,0 +1,54 @@
+<taskgraph>
+<task>
+  <name>delay_seconds</name>
+  <inFunction>delay_seconds</inFunction>
+  <calledFunction>delay_ticks_longlong</calledFunction>
+</task>
+<task>
+  <name>delay_milliseconds</name>
+  <inFunction>delay_milliseconds</inFunction>
+  <calledFunction>delay_ticks_longlong</calledFunction>
+</task>
+<task>
+  <name>delay_microseconds</name>
+  <inFunction>delay_microseconds</inFunction>
+  <calledFunction>delay_ticks_longlong</calledFunction>
+</task>
+<task>
+  <name>_safe_memcmp</name>
+  <inFunction>_safe_memcmp</inFunction>
+</task>
+<task>
+  <name>_safe_memmove</name>
+  <inFunction>_safe_memmove</inFunction>
+</task>
+<task>
+  <name>_safe_memset</name>
+  <inFunction>_safe_memset</inFunction>
+</task>
+<task>
+  <name>serial2block</name>
+  <inFunction>serial2block</inFunction>
+</task>
+<task>
+  <name>init_fifo</name>
+  <inFunction>init_fifo</inFunction>
+  <endOfSeqCalledFunction>_safe_memset</endOfSeqCalledFunction>
+</task>
+<task>
+  <name>get_fill_level</name>
+  <inFunction>get_fill_level</inFunction>
+</task>
+<task>
+  <name>confirm_wr_block_address</name>
+  <inFunction>confirm_wr_block_address</inFunction>
+</task>
+<task>
+  <name>pull_sample_from_fifo</name>
+  <inFunction>pull_sample_from_fifo</inFunction>
+</task>
+<task>
+  <name>block2serial</name>
+  <inFunction>block2serial</inFunction>
+</task>
+</taskgraph>

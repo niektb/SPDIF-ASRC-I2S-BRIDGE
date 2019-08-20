@@ -1,0 +1,366 @@
+<taskgraph>
+<task>
+  <name>delay_seconds</name>
+  <inFunction>delay_seconds</inFunction>
+  <calledFunction>delay_ticks_longlong</calledFunction>
+</task>
+<task>
+  <name>delay_milliseconds</name>
+  <inFunction>delay_milliseconds</inFunction>
+  <calledFunction>delay_ticks_longlong</calledFunction>
+</task>
+<task>
+  <name>delay_microseconds</name>
+  <inFunction>delay_microseconds</inFunction>
+  <calledFunction>delay_ticks_longlong</calledFunction>
+</task>
+<task>
+  <name>_safe_memcmp</name>
+  <inFunction>_safe_memcmp</inFunction>
+</task>
+<task>
+  <name>_safe_memmove</name>
+  <inFunction>_safe_memmove</inFunction>
+</task>
+<task>
+  <name>_safe_memset</name>
+  <inFunction>_safe_memset</inFunction>
+</task>
+<task>
+  <name>xassert_msg</name>
+  <inFunction>xassert_msg</inFunction>
+</task>
+<task>
+  <name>i2s_init_ports</name>
+  <inFunction>i2s_init_ports</inFunction>
+  <endOfSeqCalledFunction>__builtin_start_clock</endOfSeqCalledFunction>
+</task>
+<task>
+  <name>i2s_output_clock_pair</name>
+  <inFunction>i2s_output_clock_pair</inFunction>
+</task>
+<task>
+  <name>output_word</name>
+  <inFunction>output_word</inFunction>
+</task>
+<task>
+  <name>i2s_ratio_n</name>
+  <inFunction>i2s_ratio_n</inFunction>
+</task>
+<task>
+  <name>i2s_master0</name>
+  <inFunction>i2s_master0</inFunction>
+</task>
+<task>
+  <name>i2s_master1</name>
+  <inFunction>i2s_master1</inFunction>
+  <calledFunction>i2s_master0</calledFunction>
+</task>
+<task>
+  <name>i2s_frame_init_ports</name>
+  <inFunction>i2s_frame_init_ports</inFunction>
+</task>
+<task>
+  <name>i2s_frame_ratio_n</name>
+  <inFunction>i2s_frame_ratio_n</inFunction>
+</task>
+<task>
+  <name>i2s_frame_master0</name>
+  <inFunction>i2s_frame_master0</inFunction>
+</task>
+<task>
+  <name>i2s_frame_master1</name>
+  <inFunction>i2s_frame_master1</inFunction>
+  <calledFunction>i2s_frame_master0</calledFunction>
+</task>
+<task>
+  <name>i2s_slave_init_ports</name>
+  <inFunction>i2s_slave_init_ports</inFunction>
+  <endOfSeqCalledFunction>__builtin_start_clock</endOfSeqCalledFunction>
+</task>
+<task>
+  <name>i2s_slave_send</name>
+  <inFunction>i2s_slave_send</inFunction>
+</task>
+<task>
+  <name>i2s_slave_receive</name>
+  <inFunction>i2s_slave_receive</inFunction>
+</task>
+<task>
+  <name>i2s_slave0</name>
+  <inFunction>i2s_slave0</inFunction>
+</task>
+<task>
+  <name>i2s_slave1</name>
+  <inFunction>i2s_slave1</inFunction>
+  <endOfSeqCalledFunction>i2s_slave0</endOfSeqCalledFunction>
+</task>
+<task>
+  <name>i2s_frame_slave_init_ports</name>
+  <inFunction>i2s_frame_slave_init_ports</inFunction>
+  <endOfSeqCalledFunction>__builtin_start_clock</endOfSeqCalledFunction>
+</task>
+<task>
+  <name>i2s_frame_slave0</name>
+  <inFunction>i2s_frame_slave0</inFunction>
+</task>
+<task>
+  <name>i2s_frame_slave1</name>
+  <inFunction>i2s_frame_slave1</inFunction>
+  <endOfSeqCalledFunction>i2s_frame_slave0</endOfSeqCalledFunction>
+</task>
+<task>
+  <name>make_fsync_mask</name>
+  <inFunction>make_fsync_mask</inFunction>
+</task>
+<task>
+  <name>tdm_init_ports</name>
+  <inFunction>tdm_init_ports</inFunction>
+  <endOfSeqCalledFunction>__builtin_start_clock</endOfSeqCalledFunction>
+</task>
+<task>
+  <name>tdm_send</name>
+  <inFunction>tdm_send</inFunction>
+</task>
+<task>
+  <name>tdm_receive</name>
+  <inFunction>tdm_receive</inFunction>
+</task>
+<task>
+  <name>do_tdm</name>
+  <inFunction>do_tdm</inFunction>
+</task>
+<task>
+  <name>tdm_master0</name>
+  <inFunction>tdm_master0</inFunction>
+</task>
+<task>
+  <name>tdm_master1</name>
+  <inFunction>tdm_master1</inFunction>
+  <calledFunction>tdm_master0</calledFunction>
+</task>
+<task>
+  <name>main</name>
+  <inFunction>main</inFunction>
+</task>
+<task>
+  <name>_task_spdif_rx_0</name>
+  <inFunction>main</inFunction>
+  <parent>main</parent>
+  <calledFunction>spdif_rx</calledFunction>
+  <core>1</core>
+  <inPar/>
+</task>
+<task>
+  <name>_task_1</name>
+  <inFunction>main</inFunction>
+  <parent>main</parent>
+  <core>2</core>
+  <inPar/>
+</task>
+<task>
+  <name>_task_rate_server_2</name>
+  <inFunction>main</inFunction>
+  <parent>_task_1</parent>
+  <calledFunction>rate_server</calledFunction>
+  <core>2</core>
+  <inPar/>
+</task>
+<task>
+  <name>_task_spdif_handler_3</name>
+  <inFunction>main</inFunction>
+  <parent>_task_1</parent>
+  <calledFunction>spdif_handler</calledFunction>
+  <core>2</core>
+  <inPar/>
+</task>
+<task>
+  <name>_task_serial2block_4</name>
+  <inFunction>main</inFunction>
+  <parent>main</parent>
+  <calledFunction>serial2block</calledFunction>
+  <distributed/>
+  <inPar/>
+</task>
+<task>
+  <name>_task_5</name>
+  <inFunction>main</inFunction>
+  <parent>main</parent>
+  <core>6</core>
+  <inPar/>
+</task>
+<task>
+  <name>_task_asrc_6</name>
+  <inFunction>main</inFunction>
+  <parent>_task_5</parent>
+  <calledFunction>asrc</calledFunction>
+  <core>7</core>
+  <inPar/>
+</task>
+<task>
+  <name>_task_asrc_7</name>
+  <inFunction>main</inFunction>
+  <parent>_task_5</parent>
+  <calledFunction>asrc</calledFunction>
+  <core>8</core>
+  <inPar/>
+</task>
+<task>
+  <name>_task_8</name>
+  <inFunction>main</inFunction>
+  <parent>main</parent>
+  <core>9</core>
+  <inPar/>
+</task>
+<task>
+  <name>_task_block2serial_9</name>
+  <inFunction>main</inFunction>
+  <parent>_task_8</parent>
+  <calledFunction>block2serial</calledFunction>
+  <distributed/>
+  <inPar/>
+</task>
+<task>
+  <name>_task_i2s_master0_10</name>
+  <inFunction>main</inFunction>
+  <parent>main</parent>
+  <endOfSeqCalledFunction>i2s_master0</endOfSeqCalledFunction>
+  <core>11</core>
+  <inPar/>
+</task>
+<task>
+  <name>_task_i2s_handler_11</name>
+  <inFunction>main</inFunction>
+  <parent>main</parent>
+  <calledFunction>i2s_handler</calledFunction>
+  <distributed/>
+  <inPar/>
+</task>
+<task>
+  <name>spdif_handler</name>
+  <inFunction>spdif_handler</inFunction>
+</task>
+<task>
+  <name>samp_rate_to_code</name>
+  <inFunction>samp_rate_to_code</inFunction>
+</task>
+<task>
+  <name>asrc</name>
+  <inFunction>asrc</inFunction>
+</task>
+<task>
+  <name>i2s_handler</name>
+  <inFunction>i2s_handler</inFunction>
+</task>
+<task>
+  <name>detect_frequency</name>
+  <inFunction>detect_frequency</inFunction>
+</task>
+<task>
+  <name>rate_server</name>
+  <inFunction>rate_server</inFunction>
+</task>
+<connection>
+  <ends>
+    <end task="_task_spdif_rx_0" type="schan"/>
+    <end task="_task_spdif_handler_3" type="schan"/>
+  </ends>
+  <name>c_spdif_rx</name>
+</connection>
+<connection>
+  <ends>
+    <end task="_task_serial2block_4" type="server"/>
+    <end task="_task_rate_server_2" type="client"/>
+  </ends>
+  <name>i_sr_input</name>
+   <interface>sample_rate_enquiry_if</interface>
+</connection>
+<connection>
+  <ends>
+    <end task="_task_block2serial_9" type="server"/>
+    <end task="_task_rate_server_2" type="client"/>
+  </ends>
+  <name>i_sr_output</name>
+   <interface>sample_rate_enquiry_if</interface>
+</connection>
+<connection>
+  <ends>
+    <end task="_task_rate_server_2" type="server"/>
+    <end task="_task_asrc_6" type="client"/>
+  </ends>
+    <index>0</index>
+  <name>i_fs_ratio</name>
+   <interface>fs_ratio_enquiry_if</interface>
+   <notification>get_out_fs</notification>
+</connection>
+<connection>
+  <ends>
+    <end task="_task_rate_server_2" type="server"/>
+    <end task="_task_asrc_7" type="client"/>
+  </ends>
+    <index>1</index>
+  <name>i_fs_ratio</name>
+   <interface>fs_ratio_enquiry_if</interface>
+   <notification>get_out_fs</notification>
+</connection>
+<connection>
+  <ends>
+    <end task="_task_serial2block_4" type="server"/>
+    <end task="_task_spdif_handler_3" type="client"/>
+  </ends>
+  <name>i_serial_in</name>
+   <interface>serial_transfer_push_if</interface>
+</connection>
+<connection>
+  <ends>
+    <end task="_task_asrc_6" type="server"/>
+    <end task="_task_serial2block_4" type="client"/>
+  </ends>
+    <index>0</index>
+  <name>i_serial2block</name>
+   <interface>block_transfer_if</interface>
+</connection>
+<connection>
+  <ends>
+    <end task="_task_asrc_7" type="server"/>
+    <end task="_task_serial2block_4" type="client"/>
+  </ends>
+    <index>1</index>
+  <name>i_serial2block</name>
+   <interface>block_transfer_if</interface>
+</connection>
+<connection>
+  <ends>
+    <end task="_task_block2serial_9" type="server"/>
+    <end task="_task_asrc_6" type="client"/>
+  </ends>
+    <index>0</index>
+  <name>i_block2serial</name>
+   <interface>block_transfer_if</interface>
+</connection>
+<connection>
+  <ends>
+    <end task="_task_block2serial_9" type="server"/>
+    <end task="_task_asrc_7" type="client"/>
+  </ends>
+    <index>1</index>
+  <name>i_block2serial</name>
+   <interface>block_transfer_if</interface>
+</connection>
+<connection>
+  <ends>
+    <end task="_task_block2serial_9" type="server"/>
+    <end task="_task_i2s_handler_11" type="client"/>
+  </ends>
+  <name>i_serial_out</name>
+   <interface>serial_transfer_pull_if</interface>
+</connection>
+<connection>
+  <ends>
+    <end task="_task_i2s_handler_11" type="server"/>
+    <end task="_task_i2s_master0_10" type="client"/>
+  </ends>
+  <name>i_i2s</name>
+   <interface>i2s_callback_if</interface>
+</connection>
+</taskgraph>
