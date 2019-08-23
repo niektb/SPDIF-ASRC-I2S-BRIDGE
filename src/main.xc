@@ -70,7 +70,8 @@ int main(void){
 
         {
         	// 99999744Hz / 4069 = 24.576MHz
-        	configure_clock_ref(clk_mclk, 4069);
+        	//configure_clock_ref(clk_mclk, 4069);
+        	configure_clock_rate(clk_mclk, 24576, 1000);
 
             start_clock(clk_mclk);
             debug_printf("Starting I2S\n");
