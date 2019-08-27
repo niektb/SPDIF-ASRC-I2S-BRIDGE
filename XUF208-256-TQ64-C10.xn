@@ -13,7 +13,7 @@
   <Packages>
     <Package id="0" Type="XS2-UFnA-256-TQ64">
       <Nodes>
-        <Node Id="0" InPackageId="0" Type="XS2-L8A-256" SystemFrequency="500MHz" OscillatorSrc="1">
+        <Node Id="0" InPackageId="0" Type="XS2-L8A-256" SystemFrequency="491520kHz" ReferenceFrequency="98304kHz" OscillatorSrc="1">
           <Boot>
             <Source Location="bootFlash"/>
           </Boot>

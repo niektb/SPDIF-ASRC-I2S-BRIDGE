@@ -27,7 +27,6 @@
 
 port pled = XS1_PORT_4C;
 
-
 //port port_i2s_mclk                       = on tile[AUDIO_TILE]: XS1_PORT_1F;
 clock clk_mclk                           = on tile[AUDIO_TILE]: XS1_CLKBLK_2;
 out buffered port:32 port_i2s_bclk       = on tile[AUDIO_TILE]: XS1_PORT_1M;
@@ -44,6 +43,11 @@ clock clk_spdif_rx                       = on tile[SPDIF_TILE]: XS1_CLKBLK_3;
 unsafe void asrc(server block_transfer_if i_serial2block, client block_transfer_if i_block2serial, client fs_ratio_enquiry_if i_fs_ratio);
 [[distributable]] void i2s_handler(server i2s_callback_if i2s, client serial_transfer_pull_if i_serial_out);
 [[combinable]]void rate_server(client sample_rate_enquiry_if i_spdif_rate, client sample_rate_enquiry_if i_output_rate, server fs_ratio_enquiry_if i_fs_ratio[ASRC_N_INSTANCES]);
+
+//void xscope_debug_init(void){
+//	xscope_register(0);
+//	xscope_config_io(XSCOPE_IO_BASIC);
+//}
 
 int main(void){
     debug_printf("Hello World!\n");
@@ -70,8 +74,8 @@ int main(void){
 
         {
         	// 99999744Hz / 4069 = 24.576MHz
-        	//configure_clock_ref(clk_mclk, 4069);
-        	configure_clock_rate(clk_mclk, 24576, 1000);
+        	configure_clock_ref(clk_mclk, 4);
+        	//configure_clock_rate(clk_mclk, 24576, 1000);
 
             start_clock(clk_mclk);
             debug_printf("Starting I2S\n");
@@ -236,7 +240,7 @@ void i2s_handler(server i2s_callback_if i2s, client serial_transfer_pull_if i_se
 }
 
 
-#define SR_TOLERANCE_PPM    5000    //How far the detect_frequency function will allow before declaring invalid in p.p.m.
+#define SR_TOLERANCE_PPM    50000    //How far the detect_frequency function will allow before declaring invalid in p.p.m.
 #define LOWER_LIMIT(freq) (freq - (((long long) freq * SR_TOLERANCE_PPM) / 1000000))
 #define UPPER_LIMIT(freq) (freq + (((long long) freq * SR_TOLERANCE_PPM) / 1000000))
 
@@ -404,15 +408,6 @@ void rate_server(client sample_rate_enquiry_if i_spdif_rate, client sample_rate_
                     fs_ratio = (unsigned) (((unsigned long long)(fs_ratio_old) * OLD_VAL_WEIGHTING + (unsigned long long)(fs_ratio) ) /
                             (1 + OLD_VAL_WEIGHTING));
                 }
-
-                //Set Sample rate LEDs
-                unsigned spdif_fs_code = samp_rate_to_code(spdif_info.nominal_rate) + 1;
-                if (spdif_info.status == INVALID) spdif_fs_code = 0;
-                pled <: spdif_fs_code;
-
-
-
-
             break;
 
             case t_print when timerafter(t_print_trigger) :> int _:
